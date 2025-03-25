@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bs85dtn8va8fb"]
+[gd_scene load_steps=10 format=3 uid="uid://bs85dtn8va8fb"]
 
 [ext_resource type="PackedScene" uid="uid://c4akhe4fbb58j" path="res://Sketchfab/desert_stone_ground/scene.gltf" id="1_8v5dg"]
+[ext_resource type="PackedScene" uid="uid://cxvj4o6m6bxb3" path="res://Sketchfab/kenney_space-kit/Models/GLTF format/astronautA.glb" id="1_r070l"]
+[ext_resource type="PackedScene" uid="uid://ddou2r7db1s4r" path="res://Sketchfab/kenney_space-kit/Models/GLTF format/barrel.glb" id="2_gh6am"]
 [ext_resource type="PackedScene" uid="uid://hm8rfrqcooy5" path="res://Sketchfab/bitcoin/scene.gltf" id="2_yy3ew"]
+[ext_resource type="PackedScene" uid="uid://cc11d5d378ufs" path="res://Sketchfab/kenney_space-kit/Models/GLTF format/alien.glb" id="3_4k0pl"]
 [ext_resource type="Script" path="res://Sketchfab/bitcoin/coin.gd" id="3_6nw6j"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
@@ -22,7 +25,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43053, 0.39126, -6.55321)
 shape = SubResource("BoxShape3D_wxs1r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="block_1"]
+visible = false
 mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="astronautA2" parent="block_1" instance=ExtResource("1_r070l")]
+transform = Transform3D(1.45827, 0, 0, 0, 3.58349, 0, 0, 0, 0.758005, -2.98087, -0.39126, -1.59879)
 
 [node name="block_2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42816, 0.39126, -3.01988)
@@ -31,7 +38,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42816, 0.39126, -3.01988)
 shape = SubResource("BoxShape3D_wxs1r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="block_2"]
+visible = false
 mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="barrel2" parent="block_2" instance=ExtResource("2_gh6am")]
+transform = Transform3D(3.4335, 0, 0, 0, 4.24099, 0, 0, 0, 0.852036, -7.39435, -0.39126, -0.486541)
 
 [node name="block_3" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77524, 0.39126, -0.763028)
@@ -41,6 +52,9 @@ shape = SubResource("BoxShape3D_wxs1r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="block_3"]
 mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="alien2" parent="block_3" instance=ExtResource("3_4k0pl")]
+transform = Transform3D(1.49051, 0, 0, 0, 1.80086, 0, 0, 0, 1.59538, -2.94097, -0.39126, -1.87498)
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_8v5dg")]
 transform = Transform3D(0.495, 0, 0, 0, 0.5, 0, 0, 0, 0.423186, -5.519, 0.01, 0.032)
