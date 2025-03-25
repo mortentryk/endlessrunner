@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://bioi3wykf7gh3"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_hn5ni"]
+[ext_resource type="PackedScene" uid="uid://df14uj1y68ym6" path="res://Sketchfab/tesla_cybertruck/scene.gltf" id="2_34jgv"]
+[ext_resource type="PackedScene" uid="uid://3lcsn4l2m87s" path="res://terrain_blocks/terrain_0.tscn" id="2_dy26g"]
+[ext_resource type="PackedScene" uid="uid://de8xnc0fu23fj" path="res://TerrainController.tscn" id="3_wbh8u"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2i0lo"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_n5kol"]
+sky_material = SubResource("ProceduralSkyMaterial_2i0lo")
+
+[sub_resource type="Environment" id="Environment_0ov1m"]
+background_mode = 2
+sky = SubResource("Sky_n5kol")
+tonemap_mode = 2
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.03
+volumetric_fog_albedo = Color(0.885449, 0.331071, 0.273788, 1)
+volumetric_fog_emission = Color(0.699875, 0.216257, 0.132329, 1)
+volumetric_fog_length = 27.6
+volumetric_fog_detail_spread = 2.61165
+volumetric_fog_ambient_inject = 1.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5irjn"]
+radius = 0.2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5r03t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cn3yq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ngg2"]
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0ov1m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 4.57049, 0)
+shadow_enabled = true
+
+[node name="Bil" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+script = ExtResource("1_hn5ni")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bil"]
+shape = SubResource("CapsuleShape3D_5irjn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bil"]
+mesh = SubResource("ArrayMesh_5r03t")
+
+[node name="Camera3D" type="Camera3D" parent="Bil"]
+transform = Transform3D(1, 0, 0, 0, 0.819862, 0.572561, 0, -0.572561, 0.819862, 0, 2.70409, 0.512326)
+
+[node name="Model" parent="Bil" instance=ExtResource("2_34jgv")]
+transform = Transform3D(-1.08721, 0, 0.0127089, 0, 1, 0, -0.0138337, 0, -0.998808, 1.87396, -1.1, -3.25498)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Bil/Model"]
+transform = Transform3D(0.252257, 0, 9.31323e-10, 0, 1.89228, 0, -2.79397e-09, 0, 0.72498, 2.41804, -0.189629, 0.282345)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bil/Model/CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85131, 0, 2.72509)
+shape = SubResource("BoxShape3D_cn3yq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bil/Model/CharacterBody3D/CollisionShape3D"]
+transform = Transform3D(2.37209, 0, 0, 0, 1, 0, 0, 0, 2.13465, -11.3304, 0, -1.56042)
+visible = false
+mesh = SubResource("BoxMesh_6ngg2")
+skeleton = NodePath("../../..")
+
+[node name="terrain" parent="." instance=ExtResource("2_dy26g")]
+visible = false
+
+[node name="TerrainController" parent="." instance=ExtResource("3_wbh8u")]

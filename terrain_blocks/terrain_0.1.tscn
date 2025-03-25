@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwid0n6e7cnc2"]
+
+[ext_resource type="PackedScene" uid="uid://c4akhe4fbb58j" path="res://Sketchfab/desert_stone_ground/scene.gltf" id="1_exm2n"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
+size = Vector2(200, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxs1r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ltaw7"]
+
+[node name="terrain" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.98993)
+mesh = SubResource("PlaneMesh_86npe")
+
+[node name="block_0_1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39126, 5.57588)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_0_1"]
+shape = SubResource("BoxShape3D_wxs1r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block_0_1"]
+mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="block_0_2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42816, 0.39126, -3.01988)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_0_2"]
+shape = SubResource("BoxShape3D_wxs1r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block_0_2"]
+mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="block_0_3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77524, 0.39126, -0.763028)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_0_3"]
+shape = SubResource("BoxShape3D_wxs1r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block_0_3"]
+mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_exm2n")]
+transform = Transform3D(0.534909, 0, 0, 0, 1, 0, 0, 0, 0.723557, -7.80257, 0.102873, -2.7765)
+
+[editable path="Sketchfab_Scene"]

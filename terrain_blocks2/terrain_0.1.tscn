@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://dww262yocnt2e"]
+
+[ext_resource type="PackedScene" uid="uid://b446jtfici0bb" path="res://coin.tscn" id="1_lqqmp"]
+[ext_resource type="PackedScene" uid="uid://c4akhe4fbb58j" path="res://Sketchfab/desert_stone_ground/scene.gltf" id="1_nru0l"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
+size = Vector2(200, 20)
+
+[sub_resource type="Skin" id="Skin_e0ksy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxs1r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ltaw7"]
+
+[node name="terrain" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.98993)
+mesh = SubResource("PlaneMesh_86npe")
+skin = SubResource("Skin_e0ksy")
+
+[node name="block_0_1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47743, 0.39126, -4.29914)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_0_1"]
+shape = SubResource("BoxShape3D_wxs1r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block_0_1"]
+mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="block_0_2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.42816, 0.39126, -3.01988)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_0_2"]
+shape = SubResource("BoxShape3D_wxs1r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block_0_2"]
+mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="block_0_3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77524, 0.39126, -2.64091)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_0_3"]
+shape = SubResource("BoxShape3D_wxs1r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block_0_3"]
+mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_nru0l")]
+transform = Transform3D(0.495, 0, 0, 0, 0.5, 0, 0, 0, 0.423186, -5.519, 0.01, 0.032)
+
+[node name="Sketchfab_Scene2" parent="Sketchfab_Scene" instance=ExtResource("1_nru0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9573, 0, 0)
+
+[node name="Sketchfab_Scene3" parent="Sketchfab_Scene" instance=ExtResource("1_nru0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.0453, 0, 0)
+
+[node name="Sketchfab_Scene4" parent="Sketchfab_Scene" instance=ExtResource("1_nru0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.927, 0, 0)
+
+[node name="Sketchfab_Scene5" parent="Sketchfab_Scene" instance=ExtResource("1_nru0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.736, 0, 0)
+
+[node name="Sketchfab_Scene6" parent="Sketchfab_Scene" instance=ExtResource("1_nru0l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.4775, 0, 0)
+
+[node name="coin" parent="." instance=ExtResource("1_lqqmp")]
+transform = Transform3D(0.0506811, 0, 0, 0, 0.0352876, 0, 0, 0, 0.0128636, -7.49447, 0, 2.95032)

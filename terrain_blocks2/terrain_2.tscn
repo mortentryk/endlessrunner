@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm5xkl8heowun"]
+
+[ext_resource type="PackedScene" uid="uid://c4akhe4fbb58j" path="res://Sketchfab/desert_stone_ground/scene.gltf" id="1_nsi3k"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
+size = Vector2(200, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxs1r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ltaw7"]
+
+[node name="terrain" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.99)
+mesh = SubResource("PlaneMesh_86npe")
+
+[node name="block_12" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39126, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_12"]
+shape = SubResource("BoxShape3D_wxs1r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block_12"]
+mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="block_22" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.57878, 0.39126, -6.48761)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_22"]
+shape = SubResource("BoxShape3D_wxs1r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block_22"]
+mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="block_33" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.76526, 0.39126, -4.7491)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="block_33"]
+shape = SubResource("BoxShape3D_wxs1r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="block_33"]
+mesh = SubResource("BoxMesh_ltaw7")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_nsi3k")]
+transform = Transform3D(0.495, 0, 0, 0, 0.5, 0, 0, 0, 0.423186, -5.519, 0.01, 0.032)
+
+[node name="Sketchfab_Scene2" parent="Sketchfab_Scene" instance=ExtResource("1_nsi3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9573, 0, 0)
+
+[node name="Sketchfab_Scene3" parent="Sketchfab_Scene" instance=ExtResource("1_nsi3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.0453, 0, 0)
+
+[node name="Sketchfab_Scene4" parent="Sketchfab_Scene" instance=ExtResource("1_nsi3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.927, 0, 0)
+
+[node name="Sketchfab_Scene5" parent="Sketchfab_Scene" instance=ExtResource("1_nsi3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.736, 0, 0)
+
+[node name="Sketchfab_Scene6" parent="Sketchfab_Scene" instance=ExtResource("1_nsi3k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.4775, 0, 0)
