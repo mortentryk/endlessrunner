@@ -20,8 +20,10 @@ mesh = SubResource("PlaneMesh_86npe")
 
 [node name="block_11" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39126, -3.91174)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="block_11"]
+visible = false
 shape = SubResource("BoxShape3D_wxs1r")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="block_11"]

@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://cixohf4fomwrc"]
+
+[ext_resource type="Script" path="res://menu_scene.gd" id="1_oj0up"]
+[ext_resource type="Texture2D" uid="uid://b67ptdt8dknfh" path="res://Preview/vecteezy_mars-surface-mountains-on-mars-background-red-planet_28833002.jpg" id="2_fuxt6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gb1i1"]
+texture = ExtResource("2_fuxt6")
+modulate_color = Color(0.687215, 0.687215, 0.687215, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xj1ja"]
+bg_color = Color(0.158666, 0.635577, 0.926954, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[node name="MenuScene" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oj0up")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -570.0
+offset_top = -327.0
+offset_right = 571.0
+offset_bottom = 326.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_gb1i1")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -453.0
+offset_top = -119.0
+offset_right = -245.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_xj1ja")
+text = "Start game
+"
+
+[node name="Options" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -23.0
+offset_right = -240.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_xj1ja")
+text = "Start game
+"
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -446.0
+offset_top = 73.0
+offset_right = -238.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_xj1ja")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -445.0
+offset_top = -228.0
+offset_right = 32.0
+offset_bottom = -151.0
+theme_override_font_sizes/font_size = 56
+text = "Mars Rover"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

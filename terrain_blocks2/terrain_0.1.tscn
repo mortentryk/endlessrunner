@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dww262yocnt2e"]
+[gd_scene load_steps=9 format=3 uid="uid://dww262yocnt2e"]
 
 [ext_resource type="PackedScene" uid="uid://b446jtfici0bb" path="res://coin.tscn" id="1_lqqmp"]
 [ext_resource type="PackedScene" uid="uid://c4akhe4fbb58j" path="res://Sketchfab/desert_stone_ground/scene.gltf" id="1_nru0l"]
+[ext_resource type="Script" path="res://coin.gd" id="3_m6n4y"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
 size = Vector2(200, 20)
@@ -11,6 +12,8 @@ size = Vector2(200, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxs1r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ltaw7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5a7r"]
 
 [node name="terrain" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.98993)
@@ -64,3 +67,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.4775, 0, 0)
 
 [node name="coin" parent="." instance=ExtResource("1_lqqmp")]
 transform = Transform3D(0.0506811, 0, 0, 0, 0.0352876, 0, 0, 0, 0.0128636, -7.49447, 0, 2.95032)
+script = ExtResource("3_m6n4y")
+
+[node name="Area3D" type="Area3D" parent="coin"]
+visible = false
+collision_layer = 0
+script = ExtResource("3_m6n4y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="coin/Area3D"]
+shape = SubResource("CapsuleShape3D_h5a7r")
+
+[connection signal="body_entered" from="coin/Area3D" to="coin/Area3D" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs85dtn8va8fb"]
+[gd_scene load_steps=12 format=3 uid="uid://bs85dtn8va8fb"]
 
 [ext_resource type="PackedScene" uid="uid://c4akhe4fbb58j" path="res://Sketchfab/desert_stone_ground/scene.gltf" id="1_8v5dg"]
 [ext_resource type="PackedScene" uid="uid://cxvj4o6m6bxb3" path="res://Sketchfab/kenney_space-kit/Models/GLTF format/astronautA.glb" id="1_r070l"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hm8rfrqcooy5" path="res://Sketchfab/bitcoin/scene.gltf" id="2_yy3ew"]
 [ext_resource type="PackedScene" uid="uid://cc11d5d378ufs" path="res://Sketchfab/kenney_space-kit/Models/GLTF format/alien.glb" id="3_4k0pl"]
 [ext_resource type="Script" path="res://Sketchfab/bitcoin/coin.gd" id="3_6nw6j"]
+[ext_resource type="Script" path="res://coin.gd" id="7_kbwsc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
 size = Vector2(200, 20)
@@ -13,6 +14,8 @@ size = Vector2(200, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wxs1r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ltaw7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ylgxh"]
 
 [node name="terrain" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.98993)
@@ -78,11 +81,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.4775, 0, 0)
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0, -7.96409, 0, 3.32156)
 script = ExtResource("3_6nw6j")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Coin"]
+[node name="Area3D" type="Area3D" parent="Coin"]
+script = ExtResource("7_kbwsc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Coin/RigidBody3D"]
-transform = Transform3D(0.0004, 0, 0, 0, 0.0004, 0, 0, 0, 0, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Coin"]
-
-[connection signal="body_entered" from="Coin/RigidBody3D" to="Coin" method="_on_rigid_body_3d_body_entered"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Coin/Area3D"]
+shape = SubResource("CapsuleShape3D_ylgxh")
