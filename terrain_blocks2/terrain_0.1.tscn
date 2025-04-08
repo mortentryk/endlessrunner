@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dww262yocnt2e"]
+[gd_scene load_steps=10 format=3 uid="uid://dww262yocnt2e"]
 
-[ext_resource type="PackedScene" uid="uid://b446jtfici0bb" path="res://coin.tscn" id="1_lqqmp"]
+[ext_resource type="PackedScene" uid="uid://b446jtfici0bb" path="res://Scenes/coin.tscn" id="1_lqqmp"]
 [ext_resource type="PackedScene" uid="uid://c4akhe4fbb58j" path="res://Sketchfab/desert_stone_ground/scene.gltf" id="1_nru0l"]
-[ext_resource type="Script" path="res://coin.gd" id="3_m6n4y"]
+[ext_resource type="Script" path="res://Scripts/coin.gd" id="3_m6n4y"]
+[ext_resource type="PackedScene" uid="uid://dad7o0d4rjn50" path="res://NPCwalk.tscn" id="4_udnwq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
 size = Vector2(200, 20)
@@ -76,5 +77,8 @@ script = ExtResource("3_m6n4y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="coin/Area3D"]
 shape = SubResource("CapsuleShape3D_h5a7r")
+
+[node name="Walk" parent="." instance=ExtResource("4_udnwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6377, 0, 3.44148)
 
 [connection signal="body_entered" from="coin/Area3D" to="coin/Area3D" method="_on_body_entered"]

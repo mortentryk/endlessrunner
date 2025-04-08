@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://hm8rfrqcooy5" path="res://Sketchfab/bitcoin/scene.gltf" id="2_yy3ew"]
 [ext_resource type="PackedScene" uid="uid://cc11d5d378ufs" path="res://Sketchfab/kenney_space-kit/Models/GLTF format/alien.glb" id="3_4k0pl"]
 [ext_resource type="Script" path="res://Sketchfab/bitcoin/coin.gd" id="3_6nw6j"]
-[ext_resource type="Script" path="res://coin.gd" id="7_kbwsc"]
+[ext_resource type="Script" path="res://Scripts/coin.gd" id="7_kbwsc"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
 size = Vector2(200, 20)

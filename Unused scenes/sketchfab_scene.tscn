@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bod4drwk3f1rg"]
+
+[ext_resource type="PackedScene" uid="uid://hm8rfrqcooy5" path="res://Sketchfab/bitcoin/scene.gltf" id="1_rsqkt"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_rsqkt")]
+transform = Transform3D(0.402024, 0, 0, 0, 0.340648, 0, 0, 0, 1, 0, 0, 0)

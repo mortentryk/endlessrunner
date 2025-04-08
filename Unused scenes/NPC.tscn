@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://4xnftluh4nk2"]
+
+[ext_resource type="PackedScene" uid="uid://ciqw7ce5drqkm" path="res://NPC/Walk.fbx" id="1_3hnot"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Walk" parent="." instance=ExtResource("1_3hnot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0431315, 0, 0.0557501)
+
+[node name="Skeleton3D2" type="Skeleton3D" parent="Walk"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walk/Skeleton3D2"]
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Walk/Skeleton3D2"]
+root_node = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walk/Skeleton3D2"]
+
+[node name="Area3D" type="Area3D" parent="Walk/Skeleton3D2/CollisionShape3D"]

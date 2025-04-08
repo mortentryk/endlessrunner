@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bioi3wykf7gh3"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_hn5ni"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_hn5ni"]
 [ext_resource type="PackedScene" uid="uid://df14uj1y68ym6" path="res://Sketchfab/tesla_cybertruck/scene.gltf" id="2_34jgv"]
 [ext_resource type="PackedScene" uid="uid://3lcsn4l2m87s" path="res://terrain_blocks/terrain_0.tscn" id="2_dy26g"]
 [ext_resource type="PackedScene" uid="uid://de8xnc0fu23fj" path="res://TerrainController.tscn" id="3_wbh8u"]
