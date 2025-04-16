@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm5xkl8heowun"]
+[gd_scene load_steps=6 format=3 uid="uid://dm5xkl8heowun"]
 
 [ext_resource type="PackedScene" uid="uid://c4akhe4fbb58j" path="res://Sketchfab/desert_stone_ground/scene.gltf" id="1_nsi3k"]
+[ext_resource type="PackedScene" uid="uid://bql6ym4nct752" path="res://NPC/Waving.fbx" id="2_croqn"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
 size = Vector2(200, 20)
@@ -57,3 +58,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137.736, 0, 0)
 
 [node name="Sketchfab_Scene6" parent="Sketchfab_Scene" instance=ExtResource("1_nsi3k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.4775, 0, 0)
+
+[node name="Waving" parent="." instance=ExtResource("2_croqn")]
+transform = Transform3D(-0.197264, 0, 0.98035, 0, 1, 0, -0.98035, 0, -0.197264, -5.3455, 0, 4.26796)

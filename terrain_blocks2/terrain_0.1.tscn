@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dww262yocnt2e"]
+[gd_scene load_steps=12 format=3 uid="uid://dww262yocnt2e"]
 
 [ext_resource type="PackedScene" uid="uid://b446jtfici0bb" path="res://Scenes/coin.tscn" id="1_lqqmp"]
 [ext_resource type="PackedScene" uid="uid://c4akhe4fbb58j" path="res://Sketchfab/desert_stone_ground/scene.gltf" id="1_nru0l"]
 [ext_resource type="Script" path="res://Scripts/coin.gd" id="3_m6n4y"]
-[ext_resource type="PackedScene" uid="uid://dad7o0d4rjn50" path="res://NPCwalk.tscn" id="4_udnwq"]
+[ext_resource type="Script" path="res://Scripts/NPC2.gd" id="4_i2fyb"]
+[ext_resource type="PackedScene" uid="uid://ciqw7ce5drqkm" path="res://NPC/Walk.fbx" id="5_w4exa"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_86npe"]
 size = Vector2(200, 20)
@@ -16,12 +17,14 @@ size = Vector2(200, 20)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h5a7r"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jcbf1"]
+
 [node name="terrain" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.98993)
 mesh = SubResource("PlaneMesh_86npe")
 skin = SubResource("Skin_e0ksy")
 
-[node name="block_0_1" type="StaticBody3D" parent="."]
+[node name="block_0_1" type="StaticBody3D" parent="." groups=["Obstacle"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.47743, 0.39126, -4.29914)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="block_0_1"]
@@ -78,7 +81,14 @@ script = ExtResource("3_m6n4y")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="coin/Area3D"]
 shape = SubResource("CapsuleShape3D_h5a7r")
 
-[node name="Walk" parent="." instance=ExtResource("4_udnwq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6377, 0, 3.44148)
+[node name="CharacterBody3D2" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.90288, 0, 8.04549)
+script = ExtResource("4_i2fyb")
+
+[node name="Walk" parent="CharacterBody3D2" instance=ExtResource("5_w4exa")]
+transform = Transform3D(-0.242616, 0, 0.970122, 0, 1, 0, -0.970122, 0, -0.242616, -7.33551, 0, -0.629567)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D2"]
+shape = SubResource("CapsuleShape3D_jcbf1")
 
 [connection signal="body_entered" from="coin/Area3D" to="coin/Area3D" method="_on_body_entered"]

@@ -21,9 +21,10 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	var collision = get_last_slide_collision()
-	if collision: 
-		print("collided with:", collision.get_collider()) 
-		get_tree().quit()
+	if collision:
+		if collision.get_collider().is_in_group("Obstacle"):
+			print("collided with:", collision.get_collider()) 
+			get_tree().quit()
 
 		
 	print_debug("input: ", input_dir)

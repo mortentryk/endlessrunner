@@ -48,6 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 script = ExtResource("1_hn5ni")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bil"]
+visible = false
 shape = SubResource("CapsuleShape3D_5irjn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bil"]
@@ -67,7 +68,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.85131, 0, 2.72509)
 shape = SubResource("BoxShape3D_cn3yq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bil/Model/CharacterBody3D/CollisionShape3D"]
-transform = Transform3D(2.37209, 0, 0, 0, 1, 0, 0, 0, 2.13465, -11.3304, 0, -1.56042)
+transform = Transform3D(2.37209, 0, 7.45058e-09, 0, 1, 0, -1.86265e-09, 0, 2.13465, -3.03757, 0, -1.60038)
 visible = false
 mesh = SubResource("BoxMesh_6ngg2")
 skeleton = NodePath("../../..")
